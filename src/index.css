@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+
+    body {
+        font-family: 'Inter', sans-serif;
+        background: linear-gradient(168.13deg, #F8D696 4.91%, #EA8AF2 43.43%, #A972EE 98.14%);
+        height: 100%;
+        font-weight: 400;
+    }
+
+    input, img {
+        all: unset;
+    }
+
+    @-moz-document url-prefix() {
+        :focus {
+            outline: none;
+        }
+    }
+
+    .label-mb-leading {
+        line-height: 19px;
+        margin-bottom: 8px;
+    }
+
+    .bg-desktop {
+        background: rgba(255, 255, 255, 0.15);
+        box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.05), inset 2px 2px 8px rgba(255, 255, 255, 0.25);
+        border-radius: 16px;
+    }
+
+    .custom-inputs {
+        box-sizing: border-box;
+        width: 312px;
+        height: 48px;
+        padding: 18px 16px;
+        border-radius: 8px;
+        border: 2px solid #FAF9FA;
+        background-color: #FAF9FA;
+    }
+
+    .initial-position {
+        margin-left: 8px;
+    }
+
+    .initial-position-arrow {
+        margin-left: 0 !important;
+    }
+
+    .checkmark {
+        position: absolute;
+        left: 0;
+        height: 20px;
+        width: 20px;
+        background-color: #FFF;
+        border-radius: 50%;
+        border: 1px solid transparent;
+    }
+
+    .triangle {
+        width: 0;
+        height: 0;
+        position: relative;
+        border-bottom: solid 8px #761BE4;
+        border-top: solid 8px transparent;
+        border-left: solid 8px transparent;
+        border-right: solid 8px transparent;
+        z-index: 9;
+        margin-left: -8px;
+        margin-top: 2px;
+    }
+
+    .value-indicator {
+        position: absolute;
+        transform: translateX(-50%);
+        top: 47px;
+        width: 37px;
+        height: 25px;
+        background: #FAF9FA;
+        border-radius: 4px;
+        border: 1px solid #761BE4;
+        font-size: 12px;
+        line-height: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
+    }
+}
+
+@layer utilities {
+
+    .custom-inputs:hover {
+        border: 1px solid #761BE4;
+        background-color: #EEDFFF;
+    }
+
+    .custom-inputs:focus {
+        border: 2px solid #761BE4;
+        background-color: #FAF9FA;
+    }
+
+    .mozilla::-moz-range-thumb {
+        background-color: #761BE4;
+        border: none;
+    }
+
+    .checkmark:hover {
+        background-color: #EEDFFF;
+        border: 1px solid #761BE4;
+    }
+
+    .checkmark:checked {
+        border: 1px solid #761BE4;
+    }
+
+    input:checked ~ .checkmark {
+        border: 1px solid #761BE4;
+    }
+
+    .checkmark::after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+
+    input:checked ~ .checkmark::after {
+        display: block;
+    }
+
+    .checkmark::after {
+        top: 3px;
+        left: 3px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #761BE4;
+    }
+
+    .triangle:before {
+        content: "";
+        width: 0;
+        height: 0;
+        position: absolute;
+        border-bottom: solid 6px white;
+        border-top: solid 6px transparent;
+        border-left: solid 6px transparent;
+        border-right: solid 6px transparent;
+        top: -5px;
+        left: -6px;
+    }
+}
